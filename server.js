@@ -17,6 +17,12 @@ var Comment = require('./routes/comment');
 var runningPortNumber = process.env.PORT;
 
 
+// assuming io is the Socket.IO server object
+io.configure(function () {
+	io.set('transports', ['xhr-polling']);
+	io.set('polling duration', 10);
+});
+
 app.configure(function () {
 	// I need to access everything in '/public' directly
 	app.use(express.static(__dirname + '/public'));
@@ -32,7 +38,7 @@ app.configure(function () {
 // logs every request
 app.use(function (req, res, next) {
 	// output every request in the array
-	console.log({method:req.method, url: req.url, device: req.device});
+	console.log({method: req.method, url: req.url, device: req.device});
 	// goes onto the next function in line
 	next();
 });

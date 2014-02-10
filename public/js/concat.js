@@ -6,7 +6,7 @@
 **************************************/
 
 // connect to our socket server
-var socket = io.connect('http://live-scorn.herokuapp.com/');
+var socket = io.connect('ws://live-scorn.herokuapp.com/');
 
 var app = app || {};
 var Scorn = Scorn || {};
