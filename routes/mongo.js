@@ -4,7 +4,7 @@
 	var Mongo = require('mongodb');
 
 	var comments;
-	var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost:27017/';
+	var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL;
 	if (!process.env.MONGOLAB_URI) {
 		throw 'cannot';
 	}
