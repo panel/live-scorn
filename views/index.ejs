@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>sockets</title>
+    <meta name="description" content="a playground app to check out socketio">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+
+	<!--[if lt IE 8]>
+		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+
+  <div class="container">
+		<h2 class="row">
+      <span>Scorn</span>
+      <small>Reader Count: <span id="readerCount"></span></small>
+      <button id="bottom" type="button" class="btn btn-sm btn-primary col-xs-2 col-md-1 col-xs-offset-1 pull-right">Bottom</button>
+      <button class="btn btn-primary btn-sm col-xs-2 col-md-1 col-xs-offset-1 pull-right" data-toggle="modal" data-target="#options">Options</button>
+    </h2>
+    <div class="row">
+      <button class="btn btn-sm col-md-1 col-xs-2 btn-danger pull-right more-posts" id="more">More Posts</button>
+    </div>
+
+		<div id="allPosts">
+
+		</div>
+		<div class="navbar navbar-fixed-bottom container footer">
+      <form role="form">
+        <div class="form-group">
+          <a id="form"></a>
+          <textarea id="comment" class="form-control" placeholder="Comment" rows="5"></textarea>
+        </div>
+        <div class="form-group">
+          <input id="handle" type="text" class="form-control" placeholder="Name">
+        </div>
+
+
+  		  <button id="send" class="btn btn-lg btn-success col-xs-6 col-xs-offset-3" type="button">Send</button>
+	    </form>
+    </div>
+  </div>
+
+  <div class="modal fade" id="options">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Options</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="options-form">
+            <div class="checkbox">
+              <label>
+                <input id="pop" type="checkbox"> Open links in new window
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input id="lightbox" type="checkbox"> Open images in a lightbox
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input id="remember" type="checkbox"> Remember settings and last submittied name/homepage
+              </label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Save &amp; Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+  <div class="modal fade" id="lightbox-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+    <!-- jQuery -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="public/bower_components/jQuery/jquery.min.js"><\/script>')</script>
+
+    <!-- socket.io -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/bower_components/sass-bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/moment/min/moment.min.js"></script>
+    <script src="/bower_components/marked/lib/marked.js"></script>
+
+	<!-- APP CODE -->
+	<script src="js/concat.js"></script>
+
+	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+    </body>
+</html>
