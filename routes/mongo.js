@@ -7,15 +7,20 @@
 	var port = 27017;
 
 	var comments;
+	var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost:27017/';
 
 	console.log('Connecting to ' + host + ':' + port);
-	MongoClient.connect('mongodb://localhost:27017/scorn', function (err, db) {
+	MongoClient.connect(mongoUri, function (err, db) {
 		comments = db.collection('comments');
 	});
 
 	function addComment(comment) {
 		comments.insert(comment, function (a, b) {
-			console.log(a, b);
+			if (a) {
+				console.log(a);
+			} else {
+				return b;
+			}
 		});
 	}
 

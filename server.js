@@ -57,7 +57,6 @@ io.sockets.on('connection', function (socket) {
 
 	socket.on('post', function (data, fn) {
 		var  comment = new Comment.Post(data.handle, data.comment, data.homepage);
-		console.log(comment);
 		comment.save();
 		io.sockets.emit('blast', comment);
 
