@@ -1,17 +1,17 @@
 (function () {
 	'use strict';
 
-	var MongoClient = require('mongodb').MongoClient;
+	var Mongo = require('mongodb');
 
 	var comments;
 	var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost:27017/';
-	if(!process.env.MONGOLAB_URI) {
-		throw 'cannot'
+	if (!process.env.MONGOLAB_URI) {
+		throw 'cannot';
 	}
 
 	console.log('Connecting to ' + mongoUri);
-	MongoClient.connect(mongoUri, function (err, db) {
-		if(err) {
+	Mongo.Db.connect(mongoUri, function (err, db) {
+		if (err) {
 			console.log(err);
 		} else {
 			comments = db.collection('comments');
