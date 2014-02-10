@@ -5,6 +5,9 @@
 
 	var comments;
 	var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost:27017/';
+	if(!process.env.MONGOLAB_URI) {
+		throw 'cannot'
+	}
 
 	console.log('Connecting to ' + mongoUri);
 	MongoClient.connect(mongoUri, function (err, db) {
