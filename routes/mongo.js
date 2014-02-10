@@ -3,15 +3,16 @@
 
 	var MongoClient = require('mongodb').MongoClient;
 
-	var host = 'localhost';
-	var port = 27017;
-
 	var comments;
 	var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost:27017/';
 
-	console.log('Connecting to ' + host + ':' + port);
+	console.log('Connecting to ' + mongoUri);
 	MongoClient.connect(mongoUri, function (err, db) {
-		comments = db.collection('comments');
+		if(err) {
+			console.log(err);
+		} else {
+			comments = db.collection('comments');
+		}
 	});
 
 	function addComment(comment) {
