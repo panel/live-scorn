@@ -4,9 +4,12 @@
 	var Mongo = require('mongodb');
 
 	var comments;
-	var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL;
-	if (!process.env.MONGOLAB_URI) {
-		throw 'cannot';
+	var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb:default:@localhost:27017/scorn';
+
+	if(process.env.port === '54032' && !(process.env.MONGOHQ_URL || process.env.MONGOLAB_URI)) {
+		console.log(process.env);
+		throw 'process env not initialize';
+
 	}
 
 	console.log('Connecting to ' + mongoUri);
