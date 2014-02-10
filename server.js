@@ -13,9 +13,6 @@ var io = require('socket.io').listen(server);
 var device  = require('express-device');
 var Comment = require('./routes/comment');
 
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/scorn');
-
 
 var runningPortNumber = process.env.PORT;
 
